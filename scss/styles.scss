@@ -1,0 +1,662 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap');
+
+@import 'normalize';
+@import 'mixins';
+@import 'slick';
+
+@font-face {
+  font-family: GothamBook;
+  src: url(../fonts/GothamBook.ttf);
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url(../fonts/GothamBold.ttf);
+}
+
+@font-face {
+  font-family: GothamMedium;
+  src: url(../fonts/GothamMedium.ttf);
+}
+
+$main: #4b5562;
+$secondary: #2c4058;
+$white: #fff;
+$blue-light: #55b7ff;
+$blue-dark: #7e5aff;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.8rem;
+	line-height: 2;
+	color: $main;
+	min-height: 100%;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.container {
+	max-width: 1175px;
+	width: 96%;
+	padding: 0 15px;
+	margin: 0 auto;
+	&--sm {
+		max-width: 700px;
+		width: 96%;
+		padding: 0 15px;
+		margin: 0 auto;
+	}
+}
+
+.cover {
+	height: 100vh;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	&__title {
+		margin-bottom: -60px;
+		font-family: GothamBold;
+		font-size: 8rem;
+		color: $white;
+		text-transform: uppercase;
+	}
+	&__subtitle {
+		font-family: GothamBook;
+		font-size: 1.8rem;
+		color: $white;
+		text-transform: uppercase;
+	}
+}
+
+.flex {
+	display: flex;
+	&--column {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.cover & {
+		height: 100%;
+	}
+}
+
+.slider {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+}
+
+.slide {
+	height: 100vh;
+	width: 100%;
+	background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav {
+	margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+	width: 60%;
+	margin: 0 80px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+	&__item {
+		display: inline-block;
+	}
+	&__link {
+		font-family: GothamBook;
+	    color: white;
+	    font-size: 1.4rem;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    @include hover {
+			box-shadow: 0px 0px 20px $white;
+    		border-radius: 50px;	
+		}
+		&:before {
+		   content: '';
+		   display: inline-block;
+		   width: 7px;
+		   height: 7px;
+		   border-radius: 50%;
+		   border: 1px solid $white;
+		   margin-right: 5px;
+		}
+	}
+}
+
+.menu__link:hover:before {
+	background-color: $white;
+	transition: .3s ease-in;
+}
+
+.socials {
+	width: 15%;
+	display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    &--sm {
+    	width: 25%;
+    }
+}
+
+.social {
+	&__item {
+		display: inline-block;
+		svg {
+			fill: $white;
+		}
+	}
+	&__link {
+		border: 2px solid $white;
+	    border-radius: 50%;
+	    padding: 5px 10px;
+	    @include hover {
+			box-shadow: 0px 0px 20px $white;	
+		}
+	}
+}
+
+.logo {
+	width: 25%;
+	@include hover {
+		box-shadow: 0px 0px 20px $white;
+		border-radius: 20px;	
+	}
+}
+
+.scroll {
+	position: absolute;
+    bottom: 3%;
+    right: 48%;
+    transform: translate(-48%, -50%);
+	&__down {
+		fill: $white;
+		border-radius: 50%;
+		@include hover {
+			box-shadow: 0px 0px 20px $white;	
+			border-radius: 50%;
+		}
+	}
+}
+
+.slider .slick {
+	&-dots {
+		margin: 0;
+	    padding: 0;
+	    position: absolute;
+	    right: 30px;
+	    list-style: none;
+	    top: 50%;
+	    transform: translate(0, -50%);
+		button {
+			font-size: 0;
+		    padding: 0;
+		    display: inline-block;
+		    width: 11px;
+		    height: 11px;
+		    border-radius: 50%;
+		    border: 1px solid white;
+		    outline: none;
+		    background-color: transparent;
+		    line-height: 11px;
+		    @include hover {
+		    	background-color: $white;
+		    	box-shadow: 0px 0px 20px $white;
+		    }
+		    .slick-active & {
+				background-color: $white;
+				box-shadow: 0px 0px 20px $white;
+			}
+		}
+	}
+
+}
+
+
+.do {
+	height: 100vh;
+	padding: 70px 0 130px 0;
+	&__back {
+		width: 580px;
+		height: 470px;
+	    background-color: $blue-light;
+	    position: absolute;
+	}
+	&__title {
+		font-family: GothamBold;
+		font-size: 4.4rem;
+		text-align: center;
+		line-height: 4.4rem;
+		text-transform: uppercase;
+		padding: 0 50px;
+		margin-bottom: 90px;
+		&:before {
+			content: '';
+		    width: 100px;
+		    border-bottom: 1px solid $main;
+		    display: block;
+		    margin: 50px auto;
+		}
+		&--sm {
+			line-height: 0;
+			margin-bottom: 50px;
+		}
+	}
+	&__box {
+		margin-top: 160px;
+    	position: relative;
+    	display: flex;
+	}
+	&__text {
+		margin-left: 90px;
+		padding: 25px 0;
+	}
+	&__name {
+		margin-bottom: -35px;
+		font-family: GothamBook;
+		font-size: 2.2rem;
+		text-transform: uppercase;
+	}
+	&__type {
+		font-family: GothamBold;
+		font-size: 4.4rem;
+		line-height: 4.4rem;
+		text-transform: uppercase;
+		padding: 0;
+	}
+	&__button {
+		font-family: GothamBook;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		border: 1px solid $main;
+	    padding: 15px 40px;
+	    text-decoration: none;
+	    @include hover {
+			box-shadow: 0px 0px 20px $main;	
+			color: $main;
+		}
+	}
+	&__info {
+		margin-bottom: 30px;
+	}
+	&__map {
+		margin-top: 40px;
+		font-style: italic;
+	}
+	&--another {
+		transform: rotateY(180deg);
+		.do__title {
+			transform: rotateY(180deg);
+		}
+		.do__text {
+			transform: rotateY(180deg);
+		}
+		.do__back {
+			background-color: $blue-dark;
+		}
+		.do__text {
+    		margin-left: 40px;
+		}
+	}
+}
+
+.news {
+	height: 100vh;
+	background-image: linear-gradient(to right, rgba(126, 90, 255, 0.7), rgba(85, 183, 255, 0.7)); 
+    position: relative;
+	.do__title{
+		color: $white;
+		&:before {
+			border-color: $white;
+		}
+	}
+	&__bgc img {
+		position: absolute;
+	    z-index: 1;
+	    bottom: 0;
+	}
+}
+
+.carousel {
+	z-index: 2;
+	&__title {
+		font-family: GothamBold;
+	    font-size: 1.8rem;
+	    color: #2c4058;
+	    text-transform: uppercase;
+	    margin: 0;
+	    line-height: 3rem;
+	}
+	&__text {
+		color: $secondary;
+	    line-height: 3rem;
+	    font-size: 1.7rem;
+	}
+	&__wrap {
+		padding: 20px;
+	}
+	&__slide {
+		background-color: $white;
+	}
+}
+
+.author {
+	display: flex;
+	&__img {
+		border-radius: 50%;
+	}
+	&__name {
+		font-family: GothamBook;
+		text-transform: uppercase;
+		font-size: 1.8rem;
+		color: $secondary;
+		margin: 0 0 -10px;
+	}
+	&__date {
+		color: $blue-light;
+		font-family: GothamBook;
+		font-size: 1.4rem;
+		margin: 0;
+	}
+	&__info {
+		padding: 0 15px;
+	}
+}
+
+.carousel .slick {
+	&-slide {
+		margin: 0 15px;
+		img {
+			width: 100%;
+		}
+	}
+	&-list {
+		margin: 0 -15px;
+	}
+	&-arrow {
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		z-index: 1;
+		border: none;
+		outline: none;
+		background-color: transparent;
+		font-size: 0;
+		// width: 50px;
+		// height: 50px;
+		// background-position: center;
+		// background-size: contain;
+		// background-repeat: no-repeat;
+		// border-top: 10px solid #fff;
+		// border-right: 10px solid #fff;
+		// border-top-left-radius: 20px;
+		// border-bottom-right-radius: 20px;
+		border: 1px solid $white;
+	    border-radius: 50%;
+	    height: 40px;
+	    width: 40px;
+		@include hover {
+			// border-color: #cccccc;
+			box-shadow: 0px 0px 20px $white;	
+		}
+	}
+	&-prev {
+		left: -100px;
+		transform: translate(0, -50%) rotate(-135deg);
+		&:before {
+			content: "";
+		    display: inline-block;
+		    border: solid $white;
+		    border-width: 0px 1px 1px 0;
+		    padding: 7px;
+		    -webkit-transform: rotate(270deg) translate(-20%, -20%);
+		    -ms-transform: rotate(270deg) translate(-20%, -20%);
+		    -o-transform: rotate(270deg) translate(-20%, -20%);
+		    transform: rotate(270deg) translate(-20%, -20%);
+		}
+	}
+	&-next {
+		right: -100px;
+		transform: translate(0, -50%) rotate(45deg);
+		&:before {
+		    content: "";
+		    display: inline-block;
+		    border: solid $white;
+		    border-width: 0px 1px 1px 0;
+		    padding: 7px;
+		    -webkit-transform: rotate(270deg) translate(-20%, -20%);
+		    -ms-transform: rotate(270deg) translate(-20%, -20%);
+		    -o-transform: rotate(270deg) translate(-20%, -20%);
+		    transform: rotate(270deg) translate(-20%, -20%);
+		}
+	}
+	&-dots {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: absolute;
+		bottom: -100px;
+		left: 50%;
+		transform: translate(-50%, 0);
+		li {
+			display: inline-block;
+			margin: 20px 10px;
+		}
+		button {
+			font-size: 0;
+		    padding: 0;
+		    display: inline-block;
+		    width: 11px;
+		    height: 11px;
+		    border-radius: 50%;
+		    border: 1px solid white;
+		    outline: none;
+		    background-color: transparent;
+		    line-height: 11px;
+		    @include hover {
+		    	background-color: $white;
+		    	box-shadow: 0px 0px 20px $white;
+		    }
+		    .slick-active & {
+				background-color: $white;
+				box-shadow: 0px 0px 20px $white;
+			}
+		}
+	}
+
+}
+
+.gallery {
+	&__wrap {
+		display: flex;
+	}
+	&__flex {
+		width: 50%;
+		&:last-child {
+			display: flex;
+		    flex-wrap: wrap;
+		}
+		&:first-child {
+			margin-right: 7px;
+		}
+		img {
+			max-width: 97%;
+		}
+		iframe {
+			width: 100%;
+    		height: 100%;
+		}
+	}
+	&__item {
+		width: calc(50% - 7px);
+		line-height: 0;
+		img {
+			max-width: 100%;
+		}
+		&:nth-child(1),
+		&:nth-child(3) {
+			margin-right: 7px;
+		}
+		&:nth-child(1),
+		&:nth-child(2) {
+			margin-bottom: 7px;
+		}
+	}
+	&__box {
+		margin-top: 60px;
+    	text-align: center;
+	}
+}
+
+.section {
+	height: 100vh;
+}
+
+ #map {
+    height: 100%; 
+    width: 100%; 
+}
+
+.footer {
+	height: 60vh;
+	background-image: linear-gradient(to left, rgba(126, 90, 255, 0.7), rgba(85, 183, 255, 0.7)); 
+    position: relative;
+	&__bgc img {
+		position: absolute;
+	    z-index: -1;
+	    top: 0;
+    	right: 0;
+	}
+	&__wrap {
+		padding-top: 20vh;
+		display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+	}
+	&__copyright {
+		color: $white;
+		font-family: GothamBook;
+		font-size: 1.4rem;
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+		svg {
+			fill: $white;
+		}
+		span:first-child {
+			margin-right: 15px;
+		}
+		span:first-child:after {
+			content: "";
+			border-right: 1px solid $white;
+			padding-right: 15px;
+		}
+			a {
+				@include hover {
+				box-shadow: 0px 0px 20px #fff;
+				border-radius: 5px;
+			}
+		}
+	}
+	.social__link {
+		@include hover {
+			box-shadow: 0px 0px 20px #fff;
+		}
+	}  
+	&__logo{
+		@include hover {
+			box-shadow: 0px 0px 20px #fff;
+    		border-radius: 20px;
+		}
+	}				
+}
+
+.contacts {
+	position: absolute;
+    top: -60%;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    height: 450px;
+    &__bgc {
+    	img {
+    		position: relative;
+    		z-index: -2;
+    		bottom: -105px;
+    	}
+    }
+    &__wrap {
+    	display: flex;
+    	position: absolute;
+    }
+    &__contacts {
+    	width: 350px;
+    	&__item {
+    		font-family: GothamBook;
+    		font-size: 1.8rem;
+    	}
+    	a {
+			color: $main;
+			text-decoration: none;
+		}
+    }
+    &__form {
+    	width: 350px;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: flex-end;
+	    input {
+	    	width: 350px;
+	    	border: none;
+    		border-bottom: 1px solid $main;
+    		padding: 20px 0;
+    		outline: none;
+		}
+		input[type="submit"] {
+			margin-top: 30px;
+		    width: 40%;
+		    border: 1px solid black;
+		    background-color: transparent;
+		    padding: 15px;
+		    &:hover,
+		    &:focus,
+		    &:active {
+		    	box-shadow: 0px 0px 20px #4b5562;
+		    }
+		}  
+    }
+    svg {
+    	fill: $blue-dark;
+    }
+}
